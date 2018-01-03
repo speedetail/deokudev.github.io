@@ -14,7 +14,7 @@ layout: default
         </div>
         <!-- 추가 및 아카이브 형태로 수정-->
         <ul class="content-ul" recent>
-                    {% for post in site.posts offset: 0 limit: 10  %}
+                    {% for post in site.posts offset: 0 limit: 7  %}
                         <li>
                              <time> 
                              {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}. 
@@ -26,8 +26,8 @@ layout: default
         </ul>
       
     </div>
-    
-    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
+    <!-- anchor 추가 -->
+    <button class="anchor"><i class="fa fa-anchor"></i></button> 
     
     <div class="right">
         <div class="wrap">
@@ -38,8 +38,8 @@ layout: default
                     <i class="fa fa-th-list"></i>
                     Categories
                 </div>
-                <ul class="content-ul" cate>
-                    {% for category in site.categories %}
+                <ul id="content-side" class="content-ul" cate> <!-- anchor 기능을 content-side id -->
+                     {% for category in site.categories %}
                     <li>
                         <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
                             <span class="name">
@@ -108,7 +108,7 @@ layout: default
                     {% endfor %}
                 </div>
             </div>
-
+        
             <!-- <div class="side">
                 <div>
                     <i class="fa fa-external-link"></i>
