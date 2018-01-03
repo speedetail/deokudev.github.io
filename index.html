@@ -7,6 +7,20 @@ layout: default
         <!--<h3>Thank God for one more step!</h3>-->
         <small><strong> 배운 것을 기록하는 블로그입니다.</strong> <br> <i>Thank God for one more step! Today</i></small>
         <hr>
+        
+        <div style="margin-top:3px"> <!--추가-->
+                    <i class="fa fa-th-list"></i>
+                    Categories
+        </div>
+        <br>
+        {% for category in site.categories %}
+        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
+                            • <span style="background-color: #dbdfee;">{{ category | first }}</span>
+                            <!--({{ category | last | size }})-->
+                        </a>
+         &nbsp;
+        {% endfor %}
+        
         <!-- Recent Post로 대체 -->
         <div>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -27,6 +41,7 @@ layout: default
                         </li>
                     {% endfor %}
         </ul>
+        <!--Tag 추가-->
         
         <!-- Pagination links -->
         <div class="pagination">
@@ -46,21 +61,6 @@ layout: default
             <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
           {% endif %}
         </div>
-        
-       
-        <!--Tag 추가-->
-                <div style="margin-top:15px"> <!--추가-->
-                    <i class="fa fa-th-list"></i>
-                    Categories
-                </div>
-        <br>
-        {% for category in site.categories %}
-        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
-                            • <span style="background-color: #dbdfee;">{{ category | first }}</span>
-                            <!--({{ category | last | size }})-->
-                        </a>
-         &nbsp;
-        {% endfor %}
        
       
     </div>
