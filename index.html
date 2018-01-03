@@ -66,7 +66,33 @@ layout: default
           {% endif %}
         </div>
         -->
-       
+        <!-- 아카이브로 대체 -->
+        <ul>
+          {% for post in site.posts %}
+
+            {% unless post.next %}
+              <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
+            {% else %}
+              {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+              {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+              {% if year != nyear %}
+                <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
+              {% endif %}
+            {% endunless %}
+
+            <li>
+                <time>
+                {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
+                </time>
+                <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+
+                {% include category.html %}
+                {% include tag.html %}
+            </li>
+
+          {% endfor %}
+        </ul>
+      
     </div>
     <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
     <div class="right">
