@@ -32,7 +32,7 @@ layout: default
                 </div>
         {% for category in site.categories %}
         <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
-                            <span style="background-color: #dbdfee;">{{ category | first }}({{ category | last | size }})</span>
+                            • <span style="background-color: #dbdfee;">{{ category | first }}</span>({{ category | last | size }})
                         </a>
          &nbsp;
         {% endfor %}
