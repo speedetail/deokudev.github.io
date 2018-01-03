@@ -15,7 +15,8 @@ layout: default
         <!-- 추가 및 아카이브 형태로 수정-->
 
         <ul style="display:inline-block;margin-top:-5px" class="content-ul" recent> <!-- display inline-block 속성으로 짤리는 것 방지-->
-                    {% for post in site.posts offset: 0 limit: 10  %}
+                    <!--{% for post in site.posts offset: 0 limit: 10  %}-->
+                    {% for post in paginator.posts %}
                         <li>
                              <time> 
                              {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}. 
@@ -25,6 +26,27 @@ layout: default
                         </li>
                     {% endfor %}
         </ul>
+        
+        <!-- Pagination links -->
+        <div class="pagination">
+          {% if paginator.previous_page %}
+            <a href="/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous"><i class="fa fa-angle-left"></i></a>
+          {% else %}
+            <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
+            <span class="previous disable"><i class="fa fa-angle-left"></i></span>
+          {% endif %}
+          <span class="page_number ">{{ paginator.page }}/{{ paginator.total_pages }}</span>
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next"><i class="fa fa-angle-right"></i></a>
+            <a href="{{ site.baseurl }}/page{{ paginator.total_pages }}" class="next"><i class="fa fa-angle-double-right"></i></a>
+          {% else %}
+            <span class="next disable"><i class="fa fa-angle-right"></i></span>
+            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
+          {% endif %}
+        </div>
+        
+       
         <!--Tag 추가-->
                 <div style="margin-top:15px"> <!--추가-->
                     <i class="fa fa-th-list"></i>
