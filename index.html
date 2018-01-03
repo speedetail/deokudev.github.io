@@ -8,25 +8,11 @@ layout: default
         <small><strong> 배운 것을 기록하는 블로그입니다.</strong> <br> <i>Thank God for one more step! Today</i></small>
         <hr>
         
-        <div style="margin-top:3px"> <!--추가-->
-                    <i class="fa fa-th-list"></i>
-                    Categories
-        </div>
-        <br>
-        {% for category in site.categories %}
-        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
-                            • <span style="background-color: #dbdfee;">{{ category | first }}</span>
-                            <!--({{ category | last | size }})-->
-                        </a>
-         &nbsp;
-        {% endfor %}
-        
         <!-- Recent Post로 대체 -->
         <div>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     Recent Posts
         </div>
-        <br>
         <!-- 추가 및 아카이브 형태로 수정-->
 
         <ul style="display:inline-block;margin-top:-5px" class="content-ul" recent> <!-- display inline-block 속성으로 짤리는 것 방지-->
@@ -42,27 +28,62 @@ layout: default
                     {% endfor %}
         </ul>
         <!--Tag 추가-->
-        
-        <!-- Pagination links -->
-        <div class="pagination">
-          {% if paginator.previous_page %}
-            <a href="/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
-            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous"><i class="fa fa-angle-left"></i></a>
-          {% else %}
-            <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
-            <span class="previous disable"><i class="fa fa-angle-left"></i></span>
-          {% endif %}
-          <span class="page_number ">{{ paginator.page }}/{{ paginator.total_pages }}</span>
-          {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path }}" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="{{ site.baseurl }}/page{{ paginator.total_pages }}" class="next"><i class="fa fa-angle-double-right"></i></a>
-          {% else %}
-            <span class="next disable"><i class="fa fa-angle-right"></i></span>
-            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
-          {% endif %}
+                <div style="margin-top:15px"> <!--추가-->
+                    <i class="fa fa-th-list"></i>
+                    Categories
         </div>
-       
-      
+        <br>
+        {% for category in site.categories %}
+        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
+                            • <span style="background-color: #dbdfee;">{{ category | first }}</span>
+                            <!--({{ category | last | size }})-->
+                        </a>
+         &nbsp;
+        {% endfor %}
+        
+        <div>
+                    <i class="fa fa-tags"></i>
+                    Tags
+                </div>
+                <div class="tags-cloud">
+                    {% assign first = site.tags.first %}
+                    {% assign max = first[1].size %}
+                    {% assign min = max %}
+                    {% for tag in site.tags offset:1 %}
+                      {% if tag[1].size > max %}
+                        {% assign max = tag[1].size %}
+                      {% elsif tag[1].size < min %}
+                        {% assign min = tag[1].size %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if max == min %}
+                        {% assign diff = 1 %}
+                    {% else %}
+                        {% assign diff = max | minus: min %}
+                    {% endif %}
+
+                    {% for tag in site.tags %}
+                      {% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff %}
+                      {% assign base = temp | divided_by: 4 %}
+                      {% assign remain = temp | modulo: 4 %}
+                      {% if remain == 0 %}
+                        {% assign size = base | plus: 9 %}
+                      {% elsif remain == 1 or remain == 2 %}
+                        {% assign size = base | plus: 9 | append: '.5' %}
+                      {% else %}
+                        {% assign size = base | plus: 10 %}
+                      {% endif %}
+                      {% if remain == 0 or remain == 1 %}
+                        {% assign color = 9 | minus: base %}
+                      {% else %}
+                        {% assign color = 8 | minus: base %}
+                      {% endif %}
+                      <a href="{{ root_url }}/{{ site.tag_dir }}#{{ tag[0] }}" style="font-size: {{ size }}pt; color: #{{ color }}{{ color }}{{ color }};">{{ tag[0] }}</a>
+                    {% endfor %}
+                </div>
+        
+        
     </div>
     <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
     <button class="anchor"><i class="fa fa-anchor"></i></button>
