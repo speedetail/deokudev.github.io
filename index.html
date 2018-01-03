@@ -26,14 +26,17 @@ layout: default
                     {% endfor %}
         </ul>
         <!--Tag 추가-->
-        <br>
-                <div>
+                <div style="margin-top:5px"> <!--추가-->
                     <i class="fa fa-th-list"></i>
                     Categories
                 </div>
         {% for category in site.categories %}
-        <h2 id="{{category | first}}">{{category | first}}</h2>
-        <h2> {% include category.html %} </h2>
+        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
+                            <span class="name">
+                                {{ category | first }}
+                            </span>
+                            <span class="badge">{{ category | last | size }}</span>
+                        </a>
          &nbsp;
         {% endfor %}
        
