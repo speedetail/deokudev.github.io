@@ -15,7 +15,7 @@ layout: default
         <!-- 추가 및 아카이브 형태로 수정-->
 
         <ul class="content-ul" recent>
-                    {% for post in site.posts offset: 0 limit: 7  %}
+                    {% for post in site.posts offset: 0 limit: 10  %}
                         <li>
                              <time> 
                              {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}. 
