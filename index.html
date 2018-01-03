@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="page clearfix" index>
-    <div class="left">
+    <div style="clear:both" class="left"> <!--에러수정-->
         <!--<h3>Thank God for one more step!</h3>-->
         <small><strong> 배운 것을 기록하는 블로그입니다.</strong> <br> <i>Thank God for one more step! Today</i></small>
         <hr>
@@ -13,7 +13,7 @@ layout: default
                     Recent Posts
         </div>
         <!-- 추가 및 아카이브 형태로 수정-->
-        <div style="clear:both"> <!--에러수정-->
+
         <ul class="content-ul" recent>
                     {% for post in site.posts offset: 0 limit: 7  %}
                         <li>
@@ -25,7 +25,7 @@ layout: default
                         </li>
                     {% endfor %}
         </ul>
-        </div>
+       
       
     </div>
     <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
