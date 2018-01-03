@@ -33,7 +33,7 @@ layout: default
         {% for category in site.categories %}
         <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
                             <span class="point">• {{ category | first }}</span>
-                            <span class="badge">{{ category | last | size }}</span>
+                            <span style="background-color: #dbdfee;transform: scale(1.2) rotate(360deg);">{{ category | last | size }}</span>
                         </a>
          &nbsp;
         {% endfor %}
