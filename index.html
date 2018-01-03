@@ -32,6 +32,7 @@ layout: default
                     Categories
                 </div>
         {% for category in site.categories %}
+            <h2 id="{{category | first}}">{{category | first}}</h2>
          {% include category.html %} 
          &nbsp;
         {% endfor %}
