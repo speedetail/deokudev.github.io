@@ -26,8 +26,9 @@ layout: default
         </ul>
       
     </div>
-    <!-- anchor 추가 -->
-    <button class="anchor"><i class="fa fa-anchor"></i></button> 
+    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+     
     
     <div class="right">
         <div class="wrap">
@@ -38,7 +39,7 @@ layout: default
                     <i class="fa fa-th-list"></i>
                     Categories
                 </div>
-                <ul id="content-side" class="content-ul" cate> <!-- anchor 기능을 content-side id -->
+                <ul class="content-ul" cate> 
                      {% for category in site.categories %}
                     <li>
                         <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
