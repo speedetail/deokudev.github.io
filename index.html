@@ -12,9 +12,16 @@ layout: default
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     Recent Posts
         </div>
+        <hr> <!-- 추가 및 아카이브 형태로 수정-->
         <ul class="content-ul" recent>
                     {% for post in site.posts offset: 0 limit: 10  %}
-                        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                        <li>
+                             <time> 
+                             {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}. 
+                             </time> 
+                             <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> 
+                             {% include category.html %} 
+                        </li>
                     {% endfor %}
         </ul>
       
