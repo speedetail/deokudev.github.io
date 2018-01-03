@@ -130,8 +130,8 @@
                 }
                 .content-ul[recent]{
                     padding-bottom: 16px;
-                    clear:both;  //오버랩 되는 버그 수정
                     li{
+                        clear:both;  //오버랩 되는 버그 수정
                         color:#aaa;
                         font-size: 14px;
                     }
