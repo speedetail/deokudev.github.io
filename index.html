@@ -30,6 +30,7 @@ layout: default
                     <i class="fa fa-th-list"></i>
                     Categories
                 </div>
+        <br>
         {% for category in site.categories %}
         <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
                             • <span style="background-color: #dbdfee;">{{ category | first }}</span>
