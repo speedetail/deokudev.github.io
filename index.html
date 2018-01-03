@@ -25,15 +25,15 @@ layout: default
                         </li>
                     {% endfor %}
         </ul>
-        
         <!--Tag 추가-->
+        <br>
                 <div>
                     <i class="fa fa-th-list"></i>
                     Categories
                 </div>
         {% for category in site.categories %}
-            <h2 id="{{category | first}}">{{category | first}}</h2>
-         {% include category.html %} 
+        <h2 id="{{category | first}}">{{category | first}}</h2>
+        <h2> {% include category.html %} </h2>
          &nbsp;
         {% endfor %}
        
