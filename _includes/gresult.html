@@ -1,0 +1,45 @@
+<script>
+var postlist = new Array();
+var request = require('request'),
+    cheerio = require('cheerio');
+
+var url = "https://deokudev.github.io/result/?q=Javascript";
+ 
+
+request(url, function (err, res, html) {
+    if (!err) {
+        var $ = cheerio.load(html);
+    }
+})
+
+var request = require('request'),
+    cheerio = require('cheerio');
+
+var url = "http://codenamu.org/blog/";
+ 
+
+request(url, function (err, res, html) {
+    if (!err) {
+        var $ = cheerio.load(html);
+        
+        // 블로그 title 정보 가져오기
+        $(".gs-title > a").each(function () {
+            var post = {"title": "", "link": ""};
+            var data = $(this);
+            
+            post["title"] = data.text();
+            post["link"] = data.attr("href");
+            
+            postlist.push(post); //포스트 내용 넣기
+        });
+        
+        for( var i =0; postlist.length; i++ ) {
+        var p = postlist[i];
+			  document.write(p["title"]+",");
+		    }
+
+    }
+})
+
+
+</script>
