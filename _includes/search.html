@@ -1,5 +1,11 @@
 <div id="search-container">
 <input role = "search" type="text" id="search-input" placeholder="Search" size="18" style="font-size:11pt; font-weight:bold; max-width:100%; padding:3px 6px 3px 6px;">
+
+<select name="selectBox" id="selectBox">
+    <option value="0" selected>제목</option>
+    <option value="1">내용</option>
+</select>      
+      
 <br>
 <ul id="results-container"></ul>
 </div>
@@ -9,7 +15,11 @@
 
 
 <script type="text/javascript">
-      SimpleJekyllSearch({
+      
+      var target = document.getElementById("selectBox");
+       //alert('선택된 옵션 value 값=' + target.options[target.selectedIndex].value);
+      if(target.options[target.selectedIndex].value == 0){
+       SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
         json: '/search2.json',
@@ -18,5 +28,8 @@
         limit: 10,
         fuzzy: false,
         exclude: ['Welcome']
-      })
+       })
+      }else{
+       
+      }
 </script>
