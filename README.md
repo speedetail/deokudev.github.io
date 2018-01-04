@@ -1,6 +1,6 @@
-# About this Cool Concise Jekyll Blog Theme 🤘🤘🤘
+## About
 
-> 심심풀이땅콩의 개발 블로그입니다.
+> 심심풀이땅콩의 개발 블로그입니다.🤘
 
 ## License
 
