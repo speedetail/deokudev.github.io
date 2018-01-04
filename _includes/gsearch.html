@@ -12,26 +12,17 @@
       <input id="searchtext" name="searchtext" type="text" placeholder="Search...">
     </form>
     <!-- 검색어 submit 이벤트 처리 -->
-    <script>
-      $(document).ready(function(){
-        $("#searchform").on("submit", function(e){
-          e.preventDefault();
-          var url = encodeURIComponent($("#searchtext").val());
-          //location.href = "./googleresult.html?q=" + url;
-          
-                (function() {
-    var cx = '005971650982136930476:yhr4bdbsanu';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-          
-        });
-      });
-      
-    </script>
+<script>
+   (function() {
+      var cx = '---------------------';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+   })();
+</script>
+<gcse:search></gcse:search>
   </body>
 </html>
