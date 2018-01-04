@@ -1,17 +1,15 @@
 <html>
 	<head></head>
 	<body>
-<script>
-var postlist = new Array();
-var request = require('request'),
-    cheerio = require('cheerio');
-
-var url = "https://deokudev.github.io/result/?q=Javascript";
+        <script>
+        var postlist = new Array();
+        var request = require('request'),
+        cheerio = require('cheerio');
+	var url = "https://deokudev.github.io/result/?q=Javascript";
 
 request(url, function (err, res, html) {
     if (!err) {
         var $ = cheerio.load(html);
-        
         // 블로그 title 정보 가져오기
         $(".gs-title > a").each(function () {
             var post = {"title": "", "link": ""};
@@ -32,8 +30,6 @@ request(url, function (err, res, html) {
     }
 	document.write("에러 있음");
 })
-
-
         </script>
-	</body>
+</body>
 </html>
