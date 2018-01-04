@@ -1,22 +1,12 @@
+<html>
+	<head></head>
+	<body>
 <script>
 var postlist = new Array();
 var request = require('request'),
     cheerio = require('cheerio');
 
 var url = "https://deokudev.github.io/result/?q=Javascript";
- 
-
-request(url, function (err, res, html) {
-    if (!err) {
-        var $ = cheerio.load(html);
-    }
-})
-
-var request = require('request'),
-    cheerio = require('cheerio');
-
-var url = "http://codenamu.org/blog/";
- 
 
 request(url, function (err, res, html) {
     if (!err) {
@@ -37,9 +27,12 @@ request(url, function (err, res, html) {
         var p = postlist[i];
 			  document.write(p["title"]+",");
 		    }
+	    document.write("에러 없음");
 
     }
+	document.write("에러 있음");
 })
 
 
 </script>
+	</body>
