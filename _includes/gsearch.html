@@ -1,28 +1,31 @@
 <html>
-  <head>
-    <!-- jquery 불러오기 -->
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-    crossorigin="anonymous"></script>
-  </head>
+  <head></head>
   <body>
-    <!-- 검색 상자 -->
-    <form id="searchform" class="searchbox" action="#">
-      <input id="searchtext" name="searchtext" type="text" placeholder="Search...">
-    </form>
-    <!-- 검색어 submit 이벤트 처리 -->
+
+<input id="search" type="text" class=""/>
+<script type="text/javascript">
+   $(function(){
+      $('#search').keydown(function( e ){
+         if( e.keyCode==13 ){
+            var val=$('#search').val();
+            window.location="http://publisher.sogood.co.kr:9000/html/test1.html?q="+val;
+         }
+      });
+   });
+</script>
+
 <script>
-   (function() {
-      var cx = '---------------------';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
+   (function(){
+      var cx='005971650982136930476:yhr4bdbsanu';
+      var gcse=document.createElement('script');
+      gcse.type='text/javascript';
+      gcse.async=true;
+      gcse.src='https://cse.google.com/cse.js?cx='+cx;
+      var s=document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(gcse, s);
    })();
 </script>
-<gcse:search></gcse:search>
+<gcse:searchresults-only></gcse:searchresults-only>
+    
   </body>
 </html>
