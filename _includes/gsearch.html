@@ -17,7 +17,7 @@
         $("#searchform").on("submit", function(e){
           e.preventDefault();
           var url = encodeURIComponent($("#searchtext").val());
-          location.href = "./result.html?q=" + url;
+          location.href = "./result?q=" + url;
         });
       });
     </script>
