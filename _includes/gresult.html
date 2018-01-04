@@ -10,7 +10,7 @@
         <script>
 	const request = require('request');
 	const cheerio = require('cheerio');
-
+        document.write("zzz");
 	request('https://deokudev.github.io/result/?q=Javascript', function (error, response, body) {
    	 if(error) throw error
   	  $ = cheerio.load(body); // request모듈을 이용해서 가져온정보를 넣어줌
