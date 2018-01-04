@@ -6,35 +6,22 @@
     		crossorigin="anonymous"></script>
 	</head>
 	<body>
+	What the....	
         <script>
-        var postlist = new Array();
-        var request = require('request'),
-        cheerio = require('cheerio');
-	var url = "https://deokudev.github.io/result/?q=Javascript";
+	const request = require('request');
+	const cheerio = require('cheerio');
 
-request(url, function (err, res, html) {
-    if (!err) {
-        var $ = cheerio.load(html);
-        // 블로그 title 정보 가져오기
-        $(".gs-title > a").each(function () {
-            var post = {"title": "", "link": ""};
-            var data = $(this);
-            
-            post["title"] = data.text();
-            post["link"] = data.attr("href");
-            
-            postlist.push(post); //포스트 내용 넣기
-        });
-        
-        for( var i =0; postlist.length; i++ ) {
-        var p = postlist[i];
-			  document.write(p["title"]+",");
-		    }
-	    document.write("에러 없음");
-
-    }
-	document.write("에러 있음");
-})
+	request('https://deokudev.github.io/result/?q=Javascript', function (error, response, body) {
+   	 if(error) throw error
+  	  $ = cheerio.load(body); // request모듈을 이용해서 가져온정보를 넣어줌
+  	  let json = [], title, link
+	    $('.gs-title > a').each(function(index, ele){ // <div class="recomm_blog">를 반복
+ 	       title = $(this).text(); 
+	        link = $(this).attr("href");
+        	json.push({ title: title, link: link })
+    	});
+    	console.log('json: ', json);
+	});
         </script>
 </body>
 </html>
