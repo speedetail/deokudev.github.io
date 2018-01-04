@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: SD
+title: 심심풀이땅콩의 개발 블로그
 brief-intro: Sangdeok's Dev Note
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://deokudev.github.io" # the base hostname & protocol for your site
