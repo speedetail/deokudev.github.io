@@ -11,6 +11,25 @@
     <form id="searchform" class="searchbox" action="#">
       <input role = "search" type="text" id="searchtext" name="searchtext" placeholder="Search" size="18" style="font-size:11pt; font-weight:bold; max-width:100%; padding:3px 6px 3px 6px;">
     </form>
+    
+    <!-- 일반 검색 -->
+      <br>
+      <ul id="results-container"></ul>
+   
+       <script src="/dest/jekyll-search.js" type="text/javascript"></script>
+       <script type="text/javascript">
+       SimpleJekyllSearch({
+        searchInput: document.getElementById('searchtext'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search2.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+       })
+</script>
+    
     <!-- 검색어 submit 이벤트 처리 -->
     <script>
       $(document).ready(function(){
