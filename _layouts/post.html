@@ -27,10 +27,14 @@ layout: default
             <div class="label-card">
             {% include tag.html %}
             </div> 
-            
-            {% assign tmp = post.url %}
+            <script type="text/javascript">
+                var data = "{{ post.url }}";
+                var tmp = data.replace(/\//gi, '-');
+                var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/' + tmp.slice(1,-1) + '.md'
+                document.getElementById("post_url").href= result;
+            </script>
             <div class="label-card">
-                <a href="http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts{{ post.url }}.md">Edit</a>
+                <a id="post_url" href="http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts">Edit</a>
             </div>
         </div>
         <hr>
