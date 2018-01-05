@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jekyll + Gitbug Blog 만들기"
+title:  "Jekyll + Githug Blog 만들기"
 date:   2018-01-05 10:28:00
 categories: jekyll
 tags: jekyll blog github
