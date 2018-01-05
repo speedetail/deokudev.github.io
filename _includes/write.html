@@ -1,1 +1,9 @@
-% if post %
+{% if post %}
+    
+    <script type="text/javascript">
+        var data = "/2018/01/04/create-my-blog-with-jekyll/";
+        var result = data.replace(/\//gi, '-');
+        var result2 = result.slice(1,-1) + '.md';
+    </script>
+        <a href="http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/{{ post.url }}.md" title="Tag: {{ tag }}" rel="tag">{{ tag | join: "/" }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+{% endif %}
