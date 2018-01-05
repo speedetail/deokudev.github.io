@@ -28,15 +28,14 @@ layout: default
             {% include tag.html %}
             </div>
             
-            {% if post.url %}
             <input type="hidden" id="myVar" name="variable" value="{{ post.url }}">
             <script type="text/javascript">
                 var data = document.getElementById("myVar").value;
                 var tmp = data.replace(/\//gi, '-');
-                var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/' + tmp.slice(1,-1) + '.md';
+                var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp.slice(1,-1)+'.md';
                 document.getElementById("post_url").href= result;
             </script>
-            {% endif %}
+            
             <div class="label-card">
                 <a id="post_url" href="http://prose.io/#deokudev/deokudev.github.io/tree/master/_posts">Edit</a>
             </div>
