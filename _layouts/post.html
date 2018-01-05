@@ -32,6 +32,7 @@ layout: default
                 function get_url(post_url) {
                 var tmp = post_url.replace(/\//gi, '-');
                 var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp.slice(1,-1)+'.md';
+                document.getElementById("post_url").href= result;
                 return result;
                 }
                 //document.getElementById("post_url").href= result;
