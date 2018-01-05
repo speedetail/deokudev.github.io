@@ -19,7 +19,7 @@
         $("#editform").on("submit", function(e){
           e.preventDefault();
           var myurl = location.href;
-          var idx = myurl.lastIndexOf("//deokudev.github.io/") + 22;
+          var idx = myurl.lastIndexOf("//deokudev.github.io/") + 20;
           var tmp = myurl.slice(idx,-1);
           var tmp2 = tmp.replace(/\//gi, '-');
           var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp2+'.md';
