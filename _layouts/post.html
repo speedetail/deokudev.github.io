@@ -32,19 +32,6 @@ layout: default
             {% include write.html %}
             </div>
            
-            <script type="text/javascript">
-                function get_url(post_url) {
-                var tmp = post_url.replace(/\//gi, '-');
-                var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp.slice(1,-1)+'.md';
-                document.getElementById("post_url").href= result;
-                return result;
-                }
-                //document.getElementById("post_url").href= result;
-            </script>
-            
-            <div class="label-card">
-                <a href="javascript:;" onclick="get_url({{post.url}});" >펑션</a>
-            </div>
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
