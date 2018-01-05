@@ -21,8 +21,8 @@
           var myurl = "./";
           var idx = myurl.lastIndexOf("//deokudev.github.io/");
           var tmp = myurl.slice(idx,-1);
-          var tmp2 = tmp.replace()
-          var result = "" + tmp2 + ".md";
+          var tmp2 = tmp.replace(/\//gi, '-');
+          var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp2+'.md';
           location.href = result;
         });
       });
