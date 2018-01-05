@@ -26,8 +26,8 @@ layout: default
 
             <div class="label-card">
             {% include tag.html %}
-            </div> 
-            {% load js %}
+            </div>
+            
             <script type="text/javascript">
                 var data = {{post.url | js}};
                 var tmp = data.replace(/\//gi, '-');
