@@ -30,7 +30,9 @@ permalink: /edit/
       }
       $(document).ready(function(){ // 쿼리 스트링에서 'q'파라미터를 읽어 창 제목과 표시 제목을 바꿈
         var title = decodeURIComponent(getUrlVars()['q']);
-        var data = title.replace();
+        var data = title.replace(/\//gi, '-');
+        var ret = data.slice(1,-1);
+        var ret2 = 
       });
       (function() {
         var cx = '005971650982136930476:dyi5rtwer-k';
