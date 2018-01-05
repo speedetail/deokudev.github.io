@@ -20,7 +20,7 @@
         $("#searchform").on("submit", function(e){
           e.preventDefault();
           var url = encodeURIComponent($("#searchtext").val());
-          location.href = "./write?q=" + url;
+          location.href = "./edit?q=" + url;
         });
       });
     </script>
