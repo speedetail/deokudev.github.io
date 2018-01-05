@@ -29,8 +29,9 @@
           location.href = result;
           }else{
           var tmp = myurl.slice(idx,tagidx);
-          var tmp2 = tmp.replace(/\//gi, '-').substring(1).slice(0,-1);
-          var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp2+'.md';
+          var tmp2 = tmp.replace(/\//gi, '-').substring(1);
+          var tmp3 = tmp2.slice(0,-1);
+          var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp3+'.md';
           location.href = result;
           }
         });
