@@ -1,9 +1,28 @@
-{% if post %}
-    
-    <script type="text/javascript">
-        var data = "/2018/01/04/create-my-blog-with-jekyll/";
-        var result = data.replace(/\//gi, '-');
-        var result2 = result.slice(1,-1) + '.md';
+
+<html>
+  <head>
+    <!-- jquery 불러오기 -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- 검색 상자 -->
+    <form id="searchform" class="searchbox" action="#">
+      <input type="hidden" id="searchtext" name="searchtext" value="{{post.url}}">
+      <input type="submit" value="Write" size="18" style="font-size:11pt;" align="center">
+    </form>
+                                                        
+    <!-- 검색어 submit 이벤트 처리 -->
+    <script>
+      $(document).ready(function(){
+        $("#searchform").on("submit", function(e){
+          e.preventDefault();
+          var url = encodeURIComponent($("#searchtext").val());
+          location.href = "./write?q=" + url;
+        });
+      });
     </script>
-        <a href="http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/{{ post.url }}.md" title="Tag: {{ tag }}" rel="tag">{{ tag | join: "/" }}</a>{% unless forloop.last %}&nbsp;{% endunless %}
-{% endif %}
+  </body>
+</html>
