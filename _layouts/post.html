@@ -27,8 +27,10 @@ layout: default
             <div class="label-card">
             {% include tag.html %}
             </div> 
+            
+            {% assign tmp = post.url %}
             <div class="label-card">
-                <a href="{{ site.baseurl }}{{ post.url }}">Write</a>
+                <a href="http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts{{ post.url }}.md">Edit</a>
             </div>
         </div>
         <hr>
