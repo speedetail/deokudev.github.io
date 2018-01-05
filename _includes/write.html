@@ -9,9 +9,11 @@
   </head>
   <body>
     <!-- 검색 상자 -->
-    <form id="editform" class="searchbox" action="#">
+    <form id="editform" class="editform" action="#">
+      {% if post %}
       <input type="text" id="edit" name="edit" value="{{post.url}}">
       <input type="submit" value="Write" size="18" style="font-size:11pt;" align="center">
+      {% endif %}
     </form>
                                                         
     <!-- 검색어 submit 이벤트 처리 -->
