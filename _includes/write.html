@@ -19,11 +19,10 @@
         $("#editform").on("submit", function(e){
           e.preventDefault();
           var myurl = location.href;
-          var idx = myurl.lastIndexOf("//deokudev.github.io/") + 20;
+          var idx = myurl.lastIndexOf("deokudev.github.io/") + 18;
           var tmp = myurl.slice(idx,-1);
-          var tmp2 = tmp.replace(/\//gi, '-');
-          var tmp3 = tmp2.substring(1);
-          var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp3+'.md';
+          var tmp2 = tmp.replace(/\//gi, '-').substring(1);
+          var result = 'http://prose.io/#deokudev/deokudev.github.io/edit/master/_posts/'+tmp2+'.md';
           location.href = result;
         });
       });
