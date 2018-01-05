@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "혼자서 안드로이드 APP 기획부터 개발까지!"
-date:   2018-01-04 18:06:54
+title: 혼자서 안드로이드 APP 기획부터 개발까지!
+date: 2018-01-04T18:06:54.000Z
 categories: android
 tags: speedetail tip
+published: true
 ---
 
 * content
@@ -41,7 +42,7 @@ tags: speedetail tip
 - API 서버 개발하기
 
 ## 준비사항
-- Material or Flat 테마 공부
+- Material or Flat 테마 공부(문서 참조)
 
 ## 주의사항
 - 항상 일관성을 유지해야 한다.
