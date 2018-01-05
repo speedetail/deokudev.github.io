@@ -9,17 +9,17 @@
   </head>
   <body>
     <!-- 검색 상자 -->
-    <form id="searchform" class="searchbox" action="#">
-      <input type="hidden" id="searchtext" name="searchtext" value="{{post.url}}">
+    <form id="editform" class="searchbox" action="#">
+      <input type="text" id="edit" name="edit" value="{{post.url}}">
       <input type="submit" value="Write" size="18" style="font-size:11pt;" align="center">
     </form>
                                                         
     <!-- 검색어 submit 이벤트 처리 -->
     <script>
       $(document).ready(function(){
-        $("#searchform").on("submit", function(e){
+        $("#editform").on("submit", function(e){
           e.preventDefault();
-          var url = encodeURIComponent($("#searchtext").val());
+          var url = encodeURIComponent($("#edit").val());
           location.href = "https://deokudev.github.io/edit?q=" + url;
         });
       });
