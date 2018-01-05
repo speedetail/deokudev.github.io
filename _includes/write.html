@@ -18,7 +18,7 @@
       $(document).ready(function(){
         $("#editform").on("submit", function(e){
           e.preventDefault();
-          var myurl = "./";
+          var myurl = location.href;
           var idx = myurl.lastIndexOf("//deokudev.github.io/");
           var tmp = myurl.slice(idx,-1);
           var tmp2 = tmp.replace(/\//gi, '-');
