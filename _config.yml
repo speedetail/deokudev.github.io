@@ -63,7 +63,25 @@ paginate: 6
 prose:
   metadata:
     _posts:
-      - name: "category"
+      - name: "layout"
         field:
           element: "hidden"
-          value: "articles"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "title"
+          placeholder: "제목을 입력하세요"
+      - name: "date"
+        field:
+          element: "text"
+          label: "date"
+          value: CURRENT_DATETIME
+      - name: "categories"
+        field:
+          element: "text"
+          label: "categories"
+      - name: "tags"
+        field:
+          element: "text"
+          label: "tags"        
