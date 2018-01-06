@@ -1,7 +1,8 @@
 ---
+published: true
 layout: post
-title:  "마크다운 치팅시트"
-date:   2018-01-05 10:55:00
+title: 마크다운 치팅시트
+date: '2018-01-05 19:06 +0900'
 categories: jekyll
 tags: jekyll blog markdown
 ---
@@ -110,4 +111,4 @@ __Text__
 > Markdown 언어는 표준화가 잘 되어 있지 않아서, 여러 가닥으로 파편화되어 있다. github에서는 대표적으로 kramdown이라는 문법을 사용한다.
 
 ### 치팅 시트 이미지
-![마크다운치팅시트](/assets/img/Markdown.jpg) 
+![마크다운치팅시트](/assets/img/Markdown.jpg)
