@@ -1,7 +1,8 @@
 ---
+published: true
 layout: post
-title:  "Jekyll Blog 개설 완료!"
-date:   2018-01-04 17:16:54
+title: Jekyll Blog 개설 완료!
+date: '2018-01-04 17:06 +0900'
 categories: jekyll
 tags: jekyll Blog
 ---
@@ -39,4 +40,4 @@ tags: jekyll RubyGems
 
 ## Blog 남은 작업
 
-> 카테고리 바꾸기
+> 조금 더 부드럽게 만들기
