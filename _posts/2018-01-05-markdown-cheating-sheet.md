@@ -1,8 +1,8 @@
 ---
 published: true
 layout: post
-postname: '마크다운 치팅시트'
-title: 'markdown-cheating-sheet'
+postname: 마크다운 치팅시트
+title: markdown-cheating-sheet
 date: '2018-01-05 19:06 +0900'
 categories: jekyll
 tags: jekyll blog markdown
@@ -17,7 +17,7 @@ tags: jekyll blog markdown
 
 ## Text 정리 노트!
 
-> 마크다운 입력창과 표시 결과 형식으로 정리해보자.
+> 마크다운 입력창과 표시 결과 형식으로 정리해보자..
 
 ### Header 표시하기
 
