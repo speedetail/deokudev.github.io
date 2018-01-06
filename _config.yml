@@ -73,6 +73,10 @@ prose:
           element: "text"
           label: "date"
           value: CURRENT_DATETIME
+      - name: "postname"
+        field:
+          element: "text"
+          label: "postname"  
       - name: "published"
         field:
           element: "hidden"
@@ -81,8 +85,9 @@ prose:
         field:
           element: "text"
           label: "categories"
-          value: "etc"
+          value: ""
       - name: "tags"
         field:
           element: "text"
           label: "tags"       
+          
