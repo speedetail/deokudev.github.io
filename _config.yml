@@ -71,7 +71,6 @@ prose:
         field:
           element: "text"
           label: "title"
-          placeholder: "제목을 입력하세요"
       - name: "date"
         field:
           element: "text"
