@@ -77,11 +77,10 @@ prose:
         field:
           element: "hidden"
           value: true
-      - name: "title"
+      - name: "ptitle"
         field:
           element: "text"
-          placeholder: "2018-00-00-name.md"
-          label: "title"  
+          label: "ptitle"  
       - name: "categories"
         field:
           element: "text"
