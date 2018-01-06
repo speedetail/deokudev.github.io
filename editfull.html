@@ -13,7 +13,7 @@ permalink: /editfull/
     crossorigin="anonymous"></script>
     <title> Edit </title>
   </head>
-<body style="margin:0px;padding:0px;overflow:hidden">
+<body>
     <!-- 검색 결과 제목 -->
     <script>
       function getUrlVars() // 쿼리 스트링을 파싱하는 함수
@@ -30,10 +30,9 @@ permalink: /editfull/
       }
       $(document).ready(function(){ // 쿼리 스트링에서 'q'파라미터를 읽어 창 제목과 표시 제목을 바꿈
         var url = decodeURIComponent(getUrlVars()['q']);
-        document.getElementById("inet").src = url;
+        //document.getElementById("inet").src = url;
+        location.href = url
       });  
     </script>
-    <!-- <iframe  id="inet" src="https://www.google.com" style="display:block; width:100vw; height: 100vh"></iframe> -->
-    <iframe id = "inet" src="http://www.youraddress.com" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
-   </body>
+</body>
 </html>
