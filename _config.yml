@@ -61,6 +61,7 @@ paginate: 6
 
 # prose setting
 prose:
+  rooturl: '_posts'
   metadata:
     _posts:
       - name: "layout"
@@ -76,6 +77,12 @@ prose:
         field:
           element: "hidden"
           value: true
+      - name: "title"
+        field:
+          element: "text"
+          placeholder: "2018-00-00-name.md"
+          value: "2018-00-00-name.md"
+          label: "title"  
       - name: "categories"
         field:
           element: "text"
