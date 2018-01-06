@@ -1,5 +1,7 @@
 ---
 published: true
+title: 'in-my-opinion'
+postname: '무언가를 안다는 것은'
 layout: post
 date: '2018-01-06 15:46 +0900'
 categories: memo
