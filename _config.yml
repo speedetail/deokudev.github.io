@@ -81,7 +81,6 @@ prose:
         field:
           element: "text"
           placeholder: "2018-00-00-name.md"
-          value: "2018-00-00-name.md"
           label: "title"  
       - name: "categories"
         field:
