@@ -1,10 +1,10 @@
 ---
+published: true
 layout: post
 title: 혼자서 안드로이드 APP 기획부터 개발까지!
-date: 2018-01-04T18:06:54.000Z
+date: '2018-01-05 03:06 +0900'
 categories: android
 tags: speedetail tip
-published: true
 ---
 
 * content
