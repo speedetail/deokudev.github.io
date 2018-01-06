@@ -72,6 +72,10 @@ prose:
           element: "text"
           label: "date"
           value: CURRENT_DATETIME
+      - name: "published"
+        field:
+          element: "checkbox"
+          value: true
       - name: "categories"
         field:
           element: "text"
