@@ -1,5 +1,6 @@
 ---
 layout: post
+title: '새로운 포스팅'
 date: '2018-01-06 14:39 +0900'
 published: false
 categories: memo
