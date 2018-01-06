@@ -85,6 +85,3 @@ prose:
         field:
           element: "text"
           label: "tags"       
-      - name: "title"
-        field:
-          element: "text"
