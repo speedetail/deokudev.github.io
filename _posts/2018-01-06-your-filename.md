@@ -1,0 +1,8 @@
+---
+published: true
+layout: post
+date: '2018-01-06 16:16 +0900'
+---
+## A New Post
+
+Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
