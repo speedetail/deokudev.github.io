@@ -61,10 +61,6 @@ paginate: 6
 
 # prose setting
 prose:
-  friendly-title:
-    path: _posts
-    slug-style: jekyll
-    metadata-key: title
   rooturl: '_posts'
   metadata:
     _posts:
