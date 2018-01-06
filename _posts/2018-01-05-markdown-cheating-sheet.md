@@ -1,7 +1,8 @@
 ---
 published: true
 layout: post
-title: 마크다운 치팅시트
+postname: '마크다운 치팅시트'
+title: 'markdown-cheating-sheet'
 date: '2018-01-05 19:06 +0900'
 categories: jekyll
 tags: jekyll blog markdown
