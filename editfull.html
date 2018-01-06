@@ -1,0 +1,39 @@
+---
+layout: default
+page_title: Edit
+permalink: /editfull/
+---
+
+<html>
+  <head>
+    <!-- jquery 불러오기 -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+    <title> Edit </title>
+  </head>
+<body style="margin:0px;padding:0px;overflow:hidden">
+    <!-- 검색 결과 제목 -->
+    <script>
+      function getUrlVars() // 쿼리 스트링을 파싱하는 함수
+      {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+        }
+        return vars;
+      }
+      $(document).ready(function(){ // 쿼리 스트링에서 'q'파라미터를 읽어 창 제목과 표시 제목을 바꿈
+        var url = decodeURIComponent(getUrlVars()['q']);
+        document.getElementById("inet").src = url;
+      });  
+    </script>
+    <!-- <iframe  id="inet" src="https://www.google.com" style="display:block; width:100vw; height: 100vh"></iframe> -->
+    <iframe id = "inet" src="http://www.youraddress.com" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+   </body>
+</html>
