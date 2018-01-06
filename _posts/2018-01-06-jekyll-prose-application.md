@@ -17,11 +17,13 @@ tags: jekyll prose.io blog
 
 ## Debugging Process
 - Prose.io 특성상 title 필드와  file name을 구분을 안해놓아서, raw metadata에 **title:""** 식으로 표현하면, 멈춰버리는 문제가 발생했다.
-> 결국 모든 소스를 탐색해서 title을 postname으로 바꾸어주는 작업을 수행했다.
 
-> 가끔 Prose.io가 권한을 재요청해야 하는 경우가 있는 것 같다.이 경우에는 [Prose재권한요청](prose.io) 요기서, 다시 authorization을 해주면 된다.
-    
+> 결국 모든 소스를 탐색해서 title을 postname으로 바꾸어주는 작업을 수행했다. 
+
 - 원래는 기존 플랫폼에서 Prose.io로 이동하게 만들려고 했는데, https에서 iframe을 통해 http를 불러오면, 보안 오류가 발생하더라, 온갖 삽질 끝에 그냥 링크 이동으로 만족하련다.
+
+- Prose.io는 크롬 또는 App 재접속시 가장 먼저 필요하다. 이 경우에는 [Prose재권한요청](prose.io) 요기서, 다시 authorization을 해주면 된다.
+    
 
 ## 마무리
 
