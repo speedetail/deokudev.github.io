@@ -17,7 +17,8 @@ tags: jekyll prose.io blog
 
 ## Debugging Process
 - Prose.io 특성상 title 필드와  file name을 구분을 안해놓아서, raw metadata에 **title:""** 식으로 표현하면, 멈춰버리는 문제가 발생했다.
-> 결국 모든 소스를 탐색해서 title을 postname으로 바꾸어주는 작업을 수행했다.
+
+> 결국 모든 소스를 탐색해서 title을 postname으로 바꾸어주는 작업을 수행했다..
 
 > 가끔 Prose.io가 권한을 재요청해야 하는 경우가 있는 것 같다.이 경우에는 [Prose재권한요청](prose.io) 요기서, 다시 authorization을 해주면 된다.
     
