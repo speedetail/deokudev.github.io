@@ -80,7 +80,8 @@ prose:
         field:
           element: "text"
           label: "categories"
+          value: "etc"
       - name: "tags"
         field:
           element: "text"
-          label: "tags"        
+          label: "tags"       
