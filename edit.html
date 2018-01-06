@@ -30,7 +30,7 @@ permalink: /edit/
       }
       $(document).ready(function(){ // 쿼리 스트링에서 'q'파라미터를 읽어 창 제목과 표시 제목을 바꿈
         var url = decodeURIComponent(getUrlVars()['q']);
-        document.getElementById("inet").src = "https://www.google.com/search?q=" + getUrlVars()['q'];
+        document.getElementById("inet").src = "https://www.google.com/search?q=" + url;
       });  
     </script>
     <!-- <iframe  id="inet" src="https://www.google.com" style="display:block; width:100vw; height: 100vh"></iframe> -->
