@@ -1,7 +1,8 @@
 ---
 published: true
 layout: post
-title: Jekyll + Githug Blog 만들기
+postname: 'Jekyll + Githug Blog 만들기'
+title: 'jekyll-github-blog'
 date: '2018-01-05 19:06 +0900'
 categories: jekyll
 tags: jekyll blog github
