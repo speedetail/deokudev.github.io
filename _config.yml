@@ -76,7 +76,8 @@ prose:
       - name: "postname"
         field:
           element: "text"
-          label: "postname"  
+          label: "postname"
+          placeholder: "[문법/개념/TIP/INFO] or [자료구조/네트워크]"
       - name: "published"
         field:
           element: "hidden"
@@ -86,8 +87,10 @@ prose:
           element: "text"
           label: "categories"
           value: ""
+          placeholder: "개발언어/think/major"
       - name: "tags"
         field:
           element: "text"
           label: "tags"       
-          
+          placeholder: "포스팅 내 핵심단어"
+
