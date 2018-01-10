@@ -27,7 +27,7 @@ postname: '[TIP] 안드로이드 개발 팁'
 >> Select “Debug GPU Overdraw”.
 >> Select “Show overdraw areas”
 
-```android
+```xml
 <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -40,7 +40,7 @@ postname: '[TIP] 안드로이드 개발 팁'
 
 - [RxJava](https://github.com/ReactiveX/RxJava)는 AsyncTasks의 최고의 대안이다.
 
-> RxJava의 일반적인 용도 중의 하나는 계산을 수행하는 것인데, 백그라운드 thread 상에서 네트워크 요청을 처리하고 결과또는 에러를 UI thread에 보여주는 역할을 한다.
+> RxJava의 일반적인 용도 중의 하나는 계산을 수행하는 것인데, 백그라운드 thread 상에서 네트워크 요청을 처리하고 결과 또는 에러를 UI thread에 보여주는 역할을 한다.
  
 - [Retrofit](http://square.github.io/retrofit/) 최고의 Networking library이다.
 
@@ -48,7 +48,7 @@ postname: '[TIP] 안드로이드 개발 팁'
 
 - [Retrolambda](https://medium.com/android-news/retrolambda-on-android-191cc8151f85)를 사용해서 코드를 짧게 만들어라.
 
-```android
+```xml
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -72,7 +72,7 @@ button.setOnClickListener(v -> log("Clicked"));
 ![data]({{site.baseurl}}/https://cdn-images-1.medium.com/max/1200/1*A-m20R0Qve-eB4ishqZc_Q.png)
 
 > bad case
-![레이어별]({{site.baseurl}}/https://fernandocejas.com/assets/migrated/package_organization-795x1024.png)
+![package_layer.png]({{site.baseurl}}/https://fernandocejas.com/assets/migrated/package_organization-795x1024.png)
 
 - 모든 작업을 application thread에서 퇴출시켜라.
 
@@ -134,7 +134,7 @@ Analyze > Inspect Code를 클릭한 후 Lint의 Inspection Results 창에서 확
 - [gradle build 시간을 줄이자](https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb).
 
 >/Users/cesarferreira/.gradle/gradle.properties
-```android
+```xml
 org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.configureondemand=true
@@ -146,25 +146,95 @@ org.gradle.configureondemand=true
 
 - [잘 알려진 구조](http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)를 사용해라!
 
+![android_architecture.png]({{site.baseurl}}/)
+![android_architecture2.png]({{site.baseurl}}/)
+
 >
 ![architerture]({{site.baseurl}}/https://fernandocejas.com/assets/migrated/clean_architecture_android.png)
 
+> 모든 dependency를 build.gradle 파일에 선언하지 말라. 밑에와 같이 구성하면, 쉽게 이식도 가능하다.
+
+![gradle_organization.png]({{site.baseurl}}/)
+```java
+def ciServer = 'TRAVIS'
+def executingOnCI = "true".equals(System.getenv(ciServer))
+
+// Since for CI we always do full clean builds, we don't want to pre-dex
+// See http://tools.android.com/tech-docs/new-build-system/tips
+subprojects {
+  project.plugins.whenPluginAdded { plugin ->
+    if ('com.android.build.gradle.AppPlugin'.equals(plugin.class.name) ||
+        'com.android.build.gradle.LibraryPlugin'.equals(plugin.class.name)) {
+      project.android.dexOptions.preDexLibraries = !executingOnCI
+    }
+  }
+}
+```
+
+```java
+apply from: 'buildsystem/ci.gradle'
+apply from: 'buildsystem/dependencies.gradle'
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:1.2.3'
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+  }
+}
+
+allprojects {
+  ext {
+	...
+  }
+}
+...
+
+```
 > [클린 구조](https://github.com/android10/Android-CleanArchitecture)
+
 > 최대한 dependency는 줄여라!
+
 > [SOLID](https://ko.wikipedia.org/wiki/SOLID), 객체프로그래밍을 준수하라.
 
+> 바쁘게 코딩해라!
+
+> Over Think를 피해라.
+
+> Presentation layer : Espresso 2로 UI Test
+> Domain layer : JUnit + Mockito로 Test
+> Data layer
+
+> Lambda Expressions: Retrolambda를 사용하라
+> [Dependency injection](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/): Dagger 2
+>> dependency가 inject 되게 할 수 있고, 외부적으로 구성된다.
+
 - 시간 save를 위해[유닛테스팅](http://stackoverflow.com/a/67500/794485)이 너무 중요하다.
+
 - 앱을 더 모듈화 시키고, 테스트하기 쉽도록 [dependency injection](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)을 사용해라.
+
 - [fragmented podcast](http://fragmentedpodcast.com/)에 대해 듣는 것도 유용할 것이다.
+
 - [절대 당신의 개인 email을 안드로이드 마켓용으로 사용하지 마라](https://www.reddit.com/r/Android/comments/2hywu9/google_play_only_one_strike_is_needed_to_ruin_you/)
+
 - 항상 [적절한 input types](http://developer.android.com/training/keyboard-input/style.html)를 사용해라
+
 - 사용패턴과 버그를 찾기 위해 analytics를 사용해라
+
 - [라이브러리](http://android-arsenal.com/)를 가장 최근 상태로 유지해라.(더 빠르게 그것들을 테스트하기 위해 [dryrun](https://github.com/cesarferreira/dryrun)을 사용해라)
+
 - Service는 필요한 일을 하고, 가능한 한 빠르게 죽어야 한다.
+
 - username과 email addresses에 로그인을 제안하기 위한 [Account manager](http://developer.android.com/reference/android/accounts/AccountManager.html)를 사용해라.
+
 - beta와 production.apk를 빌드하고 배포하기 위해 CI(Continuous Integration)을 사용해라.
+
 - 고유의 CI server를 만들지 말고, circleci, travis, shippable을 사용하라.
+
 - [플레이 스토어의 deployments를 자동화시켜라](https://github.com/Triple-T/gradle-play-publisher)
+
 - 만약 라이브러리가 거대하고 함수들의 작은 부분만 사용한다면, 당신은 대안으로 작은 옵션을 찾아내야 한다.(instance에 대한 [proguard](http://developer.android.com/tools/help/proguard.html)를 참조해라)
 
 _ 당신이 정말로 필요한 것보다 더 많은 모듈들을 사용하지 마라.컴파일 오래 걸릴라.
