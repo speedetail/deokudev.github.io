@@ -16,10 +16,14 @@ postname: '[TIP] 안드로이드 개발 팁'
 ## 안드로이드 언어 개발 Tip
 
 - 제 3의 라이브러리를 추가하기 전에 두번 생각해라, 정말로 serious한 commitment 이다.
+
+> 써드 파티 라이브러리는 관리, 안전성 측면에서도 위험도가 높다.
+
 - 만약 사용자가 그것을 볼 수 없다면 그것이 [그려지게 하지말라!](https://riggaroo.co.za/optimizing-layouts-in-android-reducing-overdraw/)
 - 당신이 정말로 필요하지 않는 이상, db는 사용하지 말라
 - [RxJava](https://github.com/ReactiveX/RxJava)는 AsyncTasks의 최고의 대안이다.
 - [Retrofit](http://square.github.io/retrofit/) 최고의 Networking library이다.
+- [Retrolambda](https://medium.com/android-news/retrolambda-on-android-191cc8151f85)를 사용해서 코드를 짧게 만들어라.
 - [RxJava와 Retrofit & Retrolambda를 결합](https://medium.com/swlh/party-tricks-with-rxjava-rxandroid-retrolambda-1b06ed7cd29c)해서 쓰는 것이 최고의 효율을 낸다.
 - [EventBus](https://github.com/greenrobot/EventBus)는 좋지만 너무 많이 쓰지마라. 코드가 더러워진다.
 - [레이어가 아닌 기능별로 패키징](https://medium.com/the-engineering-team/package-by-features-not-layers-2d076df1964d)해라
@@ -27,7 +31,24 @@ postname: '[TIP] 안드로이드 개발 팁'
 - 무엇이 build time을 걸리게 하는지 알기위해 빌드의 [profile report](https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb)를 수행해라.
 - [잘 알려진 구조](http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)를 사용해라!
 - 시간 save를 위해[유닛테스팅](http://stackoverflow.com/a/67500/794485)이 너무 중요하다.
-- ...
+- 앱을 더 모듈화 시키고, 테스트하기 쉽도록 [dependency injection](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)을 사용해라.
+- [fragmented podcast](http://fragmentedpodcast.com/)에 대해 듣는 것도 유용할 것이다.
+- [절대 당신의 개인 email을 안드로이드 마켓용으로 사용하지 마라](https://www.reddit.com/r/Android/comments/2hywu9/google_play_only_one_strike_is_needed_to_ruin_you/)
+- 항상 [적절한 input types](http://developer.android.com/training/keyboard-input/style.html)를 사용해라
+- 사용패턴과 버그를 찾기 위해 analytics를 사용해라
+- [라이브러리](http://android-arsenal.com/)를 가장 최근 상태로 유지해라.(더 빠르게 그것들을 테스트하기 위해 [dryrun](https://github.com/cesarferreira/dryrun)을 사용해라)
+- Service는 필요한 일을 하고, 가능한 한 빠르게 죽어야 한다.
+- username과 email addresses에 로그인을 제안하기 위한 [Account manager](http://developer.android.com/reference/android/accounts/AccountManager.html)를 사용해라.
+- beta와 production.apk를 빌드하고 배포하기 위해 CI(Continuous Integration)을 사용해라.
+- 고유의 CI server를 만들지 말고, circleci, travis, shippable을 사용하라.
+- [플레이 스토어의 deployments를 자동화시켜라](https://github.com/Triple-T/gradle-play-publisher)
+- 만약 라이브러리가 거대하고 함수들의 작은 부분만 사용한다면, 당신은 대안으로 작은 옵션을 찾아내야 한다.(instance에 대한 [proguard](http://developer.android.com/tools/help/proguard.html)를 참조해라)
+_ 당신이 정말로 필요한 것보다 더 많은 모듈들을 사용하지 마라.컴파일 오래 걸릴라..
+- [SVGs에 대한 PNGs를 ditching하는 것](http://developer.android.com/tools/help/vector-asset-studio.html)에 대해 생각하라.
+- 라이브러리 abstraction classes을 만들어라. 좀더 좋은 옵션이 생겨서, 어느 자리를 swithching하는 것이 필요할 때 더 쉽다. (Log.d(TAG,message) -> [Timber.d(message)](https://github.com/JakeWharton/timber))
+- 연결성과 연결의 타입을 감시하라.(wifi일 때, 데이터 업데이트가 더많이 일어나는가?)
+- 파워소스와 배터리를 감시하라.(충전 중에 데이터 업데이트가 더 많이 일어나는가? 배터리 낮을 때 업데이트를 중단하는가?)
+- 테스트는 성능면에서 뛰어납니다. 느린 (그러나 올바른) 구현을 작성한 다음 최적화가 테스트를 통해 어떤 것도 깨뜨리지 않는지 확인하십시오.
 
 - Optional value를 사용하라
 
@@ -74,4 +95,4 @@ postname: '[TIP] 안드로이드 개발 팁'
 ## 참조
 
 - [안드로이드 개발 팁](https://academy.realm.io/kr/posts/android-weekly-kr-193/)
-- [35가지 안드로이드 개발 팁](ttps://medium.com/@cesarmcferreira/building-android-apps-30-things-that-experience-made-me-learn-the-hard-way-313680430bf9)
+- [35가지 안드로이드 개발 팁](https://medium.com/@cesarmcferreira/building-android-apps-30-things-that-experience-made-me-learn-the-hard-way-313680430bf9)
