@@ -27,7 +27,7 @@ postname: '[TIP] 안드로이드 개발 팁'
 >> Select “Debug GPU Overdraw”.
 >> Select “Show overdraw areas”
 
-```android
+```xml
 <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -48,7 +48,7 @@ postname: '[TIP] 안드로이드 개발 팁'
 
 - [Retrolambda](https://medium.com/android-news/retrolambda-on-android-191cc8151f85)를 사용해서 코드를 짧게 만들어라.
 
-```android
+```java
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -134,7 +134,7 @@ Analyze > Inspect Code를 클릭한 후 Lint의 Inspection Results 창에서 확
 - [gradle build 시간을 줄이자](https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb).
 
 >/Users/cesarferreira/.gradle/gradle.properties
-```android
+```java
 org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.configureondemand=true
@@ -152,7 +152,44 @@ org.gradle.configureondemand=true
 > [클린 구조](https://github.com/android10/Android-CleanArchitecture)
 > 최대한 dependency는 줄여라!
 > [SOLID](https://ko.wikipedia.org/wiki/SOLID), 객체프로그래밍을 준수하라.
+> Dependency Injection을 수행하는 Dagger 2 라이브러리를 사용해라.
+> build.gradle 파일에 모두 dependency를 기록하지 마라
+```java
+def ciServer = 'TRAVIS'
+def executingOnCI = "true".equals(System.getenv(ciServer))
 
+// Since for CI we always do full clean builds, we don't want to pre-dex
+// See http://tools.android.com/tech-docs/new-build-system/tips
+subprojects {
+  project.plugins.whenPluginAdded { plugin ->
+    if ('com.android.build.gradle.AppPlugin'.equals(plugin.class.name) ||
+        'com.android.build.gradle.LibraryPlugin'.equals(plugin.class.name)) {
+      project.android.dexOptions.preDexLibraries = !executingOnCI
+    }
+  }
+}
+```
+```java
+apply from: 'buildsystem/ci.gradle'
+apply from: 'buildsystem/dependencies.gradle'
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:1.2.3'
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+  }
+}
+
+allprojects {
+  ext {
+	...
+  }
+}
+...
+```
 - 시간 save를 위해[유닛테스팅](http://stackoverflow.com/a/67500/794485)이 너무 중요하다.
 - 앱을 더 모듈화 시키고, 테스트하기 쉽도록 [dependency injection](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)을 사용해라.
 - [fragmented podcast](http://fragmentedpodcast.com/)에 대해 듣는 것도 유용할 것이다.
