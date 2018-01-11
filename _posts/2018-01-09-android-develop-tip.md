@@ -22,10 +22,10 @@ postname: '[TIP] 안드로이드 개발 팁'
 - 만약 사용자가 그것을 볼 수 없다면 그것이 [그려지게 하지말라!](https://riggaroo.co.za/optimizing-layouts-in-android-reducing-overdraw/)
 
 > Layout을 그릴 때, Overdraw를 최소화하는 것이 성능에 좋다. 만들고 최적화시에 검토해주자.
->> Go to Settings on your device.
->> Go to Developer Options
->> Select “Debug GPU Overdraw”.
->> Select “Show overdraw areas”
+>> 1.Go to Settings on your device.
+>> 2.Go to Developer Options
+>> 3.Select “Debug GPU Overdraw”.
+>> 4.Select “Show overdraw areas”
 
 ```xml
 <RelativeLayout
@@ -55,7 +55,8 @@ button.setOnClickListener(new View.OnClickListener() {
         log("Clicked");
     }
 });
-button.setOnClickListener(v -> log("Clicked"));
+
+button.setOnClickListener(v -> log("Clicked")); //매우 간단해짐!
 ```
 
 - [RxJava와 Retrofit & Retrolambda를 결합](https://medium.com/swlh/party-tricks-with-rxjava-rxandroid-retrolambda-1b06ed7cd29c)해서 쓰는 것이 최고의 효율을 낸다.
@@ -69,14 +70,13 @@ button.setOnClickListener(v -> log("Clicked"));
 > Packaging stuff together by what it is, and not by what it does
 > 구체적으로 무엇을 하는가에 따라 나누지 말고, 그것이 어떤 기능(feature)을 하는가에 따라 구조를 결정해라.
 
-![data]({{site.baseurl}}/https://cdn-images-1.medium.com/max/1200/1*A-m20R0Qve-eB4ishqZc_Q.png)
+![package_feature]({{site.baseurl}}/https://cdn-images-1.medium.com/max/1200/1*A-m20R0Qve-eB4ishqZc_Q.png)
 
-> bad case
-![레이어별]({{site.baseurl}}/https://fernandocejas.com/assets/migrated/package_organization-795x1024.png)
+![package_layer]({{site.baseurl}}/https://fernandocejas.com/assets/migrated/package_organization-795x1024.png)
 
 - 모든 작업을 application thread에서 퇴출시켜라.
 
-- [lint](http://developer.android.com/tools/help/layoutopt.html)해라! 꼭 정독해보기!!! 단축키 중심으로
+- [lint](http://developer.android.com/tools/help/layoutopt.html)를 활용해라! 단축키 중심으로
 
 > *유용한 단축키*
 > 버전 관리	Alt+9	
@@ -127,13 +127,14 @@ button.setOnClickListener(v -> log("Clicked"));
 > 1.인라인 디버깅 : 인라인 변수 값, 선택한 객체를 참조하는 참조 객체, 함수반환값, 람다 및 연산자 식, 도움말 값을 나타내준다.
 Debug = Settings = Show Values Inline 선택
 > 2.Lint 도구 : 잠재적 버그, 정확성, 보안, 성능을 높이기 위해 소스 검사
-Analyze > Inspect Code를 클릭한 후 Lint의 Inspection Results 창에서 확인
+> Analyze > Inspect Code를 클릭한 후 Lint의 Inspection Results 창에서 확인
 > cf) 명령줄 또는 Android Studio를 사용하여 Android 프로젝트에서 실행할 수 있는 정적 코드 스캔 도구, 구조적 코드 문제를 검사한다.
 > Analyze > Inspect Code
 
 - [gradle build 시간을 줄이자](https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb).
+> 아래 코드를 추가해보자.
+> /Users/cesarferreira/.gradle/gradle.properties
 
->/Users/cesarferreira/.gradle/gradle.properties
 ```java
 org.gradle.daemon=true
 org.gradle.parallel=true
@@ -146,14 +147,16 @@ org.gradle.configureondemand=true
 
 - [잘 알려진 구조](http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)를 사용해라!
 
->
-![architerture]({{site.baseurl}}/https://fernandocejas.com/assets/migrated/clean_architecture_android.png)
+![android_architecture]({{site.baseurl}}/_posts/img/android_architecture.png)
 
-> [클린 구조](https://github.com/android10/Android-CleanArchitecture)
-> 최대한 dependency는 줄여라!
-> [SOLID](https://ko.wikipedia.org/wiki/SOLID), 객체프로그래밍을 준수하라.
-> Dependency Injection을 수행하는 Dagger 2 라이브러리를 사용해라.
-> build.gradle 파일에 모두 dependency를 기록하지 마라
+![android_architecture2]({{site.baseurl}}/_posts/img/android_architecture2.png)
+
+> 1. [클린 구조](https://github.com/android10/Android-CleanArchitecture)를 참고하라.
+> 2. 최대한 dependency는 줄여라!
+> 3. [SOLID](https://ko.wikipedia.org/wiki/SOLID), 객체프로그래밍을 준수하라.
+> 4. Dependency Injection을 수행하는 Dagger 2 라이브러리를 사용해라.
+> 5. build.gradle 파일에 모두 dependency를 기록하지 마라
+
 ```java
 def ciServer = 'TRAVIS'
 def executingOnCI = "true".equals(System.getenv(ciServer))
@@ -188,11 +191,20 @@ allprojects {
 	...
   }
 }
-...
 ```
+
 - 시간 save를 위해[유닛테스팅](http://stackoverflow.com/a/67500/794485)이 너무 중요하다.
+
+> ㅋ
+
 - 앱을 더 모듈화 시키고, 테스트하기 쉽도록 [dependency injection](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)을 사용해라.
+
+> ㅋ
+
 - [fragmented podcast](http://fragmentedpodcast.com/)에 대해 듣는 것도 유용할 것이다.
+
+> ㅋ
+
 - [절대 당신의 개인 email을 안드로이드 마켓용으로 사용하지 마라](https://www.reddit.com/r/Android/comments/2hywu9/google_play_only_one_strike_is_needed_to_ruin_you/)
 - 항상 [적절한 input types](http://developer.android.com/training/keyboard-input/style.html)를 사용해라
 - 사용패턴과 버그를 찾기 위해 analytics를 사용해라
