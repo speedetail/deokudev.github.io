@@ -70,9 +70,9 @@ button.setOnClickListener(v -> log("Clicked")); //매우 간단해짐!
 > Packaging stuff together by what it is, and not by what it does
 > 구체적으로 무엇을 하는가에 따라 나누지 말고, 그것이 어떤 기능(feature)을 하는가에 따라 구조를 결정해라.
 
-![package_feature]({{site.baseurl}}/https://cdn-images-1.medium.com/max/1200/1*A-m20R0Qve-eB4ishqZc_Q.png)
+![package_feature]({{site.baseurl}}/https://deokudev.github.io/asset/post/18-01-11/package_feature.png)
 
-![package_layer]({{site.baseurl}}/https://fernandocejas.com/assets/migrated/package_organization-795x1024.png)
+![package_layer]({{site.baseurl}}/https://deokudev.github.io/asset/post/18-01-11/package_layer.png)
 
 - 모든 작업을 application thread에서 퇴출시켜라.
 
@@ -132,7 +132,9 @@ Debug = Settings = Show Values Inline 선택
 > Analyze > Inspect Code
 
 - [gradle build 시간을 줄이자](https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb).
+
 > 아래 코드를 추가해보자.
+
 > /Users/cesarferreira/.gradle/gradle.properties
 
 ```java
