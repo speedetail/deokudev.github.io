@@ -70,9 +70,9 @@ button.setOnClickListener(v -> log("Clicked")); //매우 간단해짐!
 > Packaging stuff together by what it is, and not by what it does
 > 구체적으로 무엇을 하는가에 따라 나누지 말고, 그것이 어떤 기능(feature)을 하는가에 따라 구조를 결정해라.
 
-![package_feature]({{site.baseurl}}/https://deokudev.github.io/asset/post/18-01-11/package_feature.png)
+![feature]({{site.baseurl}}/assets/post/18-01-11/package_feature.png)
+![layer]({{site.baseurl}}/assets/post/18-01-11/package_layer.png)
 
-![package_layer]({{site.baseurl}}/https://deokudev.github.io/asset/post/18-01-11/package_layer.png)
 
 - 모든 작업을 application thread에서 퇴출시켜라.
 
@@ -149,15 +149,16 @@ org.gradle.configureondemand=true
 
 - [잘 알려진 구조](http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)를 사용해라!
 
-![android_architecture]({{site.baseurl}}/_posts/img/android_architecture.png)
-
-![android_architecture2]({{site.baseurl}}/_posts/img/android_architecture2.png)
+![arki1]({{site.baseurl}}/assets/post/18-01-11/android_architecture.png)
+![arki2]({{site.baseurl}}/assets/post/18-01-11/android_architecture2.png)
 
 > 1. [클린 구조](https://github.com/android10/Android-CleanArchitecture)를 참고하라.
 > 2. 최대한 dependency는 줄여라!
 > 3. [SOLID](https://ko.wikipedia.org/wiki/SOLID), 객체프로그래밍을 준수하라.
 > 4. Dependency Injection을 수행하는 Dagger 2 라이브러리를 사용해라.
 > 5. build.gradle 파일에 모두 dependency를 기록하지 마라
+
+![org]({{site.baseurl}}/assets/post/18-01-11/gradle_organization.png)
 
 ```java
 def ciServer = 'TRAVIS'
@@ -197,30 +198,65 @@ allprojects {
 
 - 시간 save를 위해[유닛테스팅](http://stackoverflow.com/a/67500/794485)이 너무 중요하다.
 
-> ㅋ
+>  Unit tests and test-driven development (TDD), 유닛테스트와 테스트기반 개발이 매우 중요하다. 
 
 - 앱을 더 모듈화 시키고, 테스트하기 쉽도록 [dependency injection](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)을 사용해라.
 
-> ㅋ
+> Dependency는 한 클래스가 다른 클래스의 메서드를 실행할 때, 이를 의존이라고 표현한다. 의존은 변경에 의해 영향을 받는 관계를 의미한다. 즉, 한 클래스 내부의 메쏘드명을 바꾸면 그것을 참조하는 다른 클래스에서도 전부 변경이 필요하다는 의미이다.
+
+> Dependency Injection이란 의존하는 객체를 직접 생성하지 않고, 의존 객체를 전달받는 방식을 사용하는 것을 의미한다. 이렇게 되면 변경의 유연함이라는 장점이 생긴다.
+
+> 실제 개발 시 의존관계가 무척 복잡하고 외울 수도 없을 만큼 많아지게 된다. 이 때 한 클래스의 메서드 이름을 수정하거나, 메서드의 반환 타입을 수정하는 수정사항이 발생한다. 그때마다 그 클래스를 의존하는 수많은 클래스의 내용을 수정 사항에 맞게 일일이 수정해주어야 하는 매우 귀찮은 일이 발생한다. 
+
+> 그러나 DI를 사용하면 수정사항이 아무리 발생해도, 변결할 곳은 의존 주입 대상이 되는 객체를 생성하는 코드 한 곳 뿐이다.
+
+> 코드를 변경해야 할 곳이 한 곳으로 집중되는 편리함을 찾을 수 있다.
 
 - [fragmented podcast](http://fragmentedpodcast.com/)에 대해 듣는 것도 유용할 것이다.
 
-> ㅋ
+> 구독하기
 
 - [절대 당신의 개인 email을 안드로이드 마켓용으로 사용하지 마라](https://www.reddit.com/r/Android/comments/2hywu9/google_play_only_one_strike_is_needed_to_ruin_you/)
+
+> 사업용으로 계정을 하나 만들어야 한다고 한다.
+
 - 항상 [적절한 input types](http://developer.android.com/training/keyboard-input/style.html)를 사용해라
+
+> 숫자만 입력하는데 굳이 쿼티 키보드는 필요없자나?
+
 - 사용패턴과 버그를 찾기 위해 analytics를 사용해라
+
 - [라이브러리](http://android-arsenal.com/)를 가장 최근 상태로 유지해라.(더 빠르게 그것들을 테스트하기 위해 [dryrun](https://github.com/cesarferreira/dryrun)을 사용해라)
+
 - Service는 필요한 일을 하고, 가능한 한 빠르게 죽어야 한다.
 - username과 email addresses에 로그인을 제안하기 위한 [Account manager](http://developer.android.com/reference/android/accounts/AccountManager.html)를 사용해라.
+
+> Android 내부에 Account Manager 함수 제공
+
 - beta와 production.apk를 빌드하고 배포하기 위해 CI(Continuous Integration)을 사용해라.
+
 - 고유의 CI server를 만들지 말고, circleci, travis, shippable을 사용하라.
+
 - [플레이 스토어의 deployments를 자동화시켜라](https://github.com/Triple-T/gradle-play-publisher)
+> Gradle plugin to upload your APK and app details to the Google Play Store
+> 1. Upload the first version of your APK using the web interface.
+> 2. Create a Google Play Service Account (see Prerequisites).
+> 3. Assign a valid signingConfig to your release build type.
+> 4. Add the plugin to your buildscript dependencies (see Usage).
+> 5. Apply the plugin (see Usage).
+> 6. Create playAccountConfigs and add them to your build (see Authentication).
+
 - 만약 라이브러리가 거대하고 함수들의 작은 부분만 사용한다면, 당신은 대안으로 작은 옵션을 찾아내야 한다.(instance에 대한 [proguard](http://developer.android.com/tools/help/proguard.html)를 참조해라)
 
-_ 당신이 정말로 필요한 것보다 더 많은 모듈들을 사용하지 마라.컴파일 오래 걸릴라.
+> ProGuard로 코드 축소를 활성화하려면 minifyEnabled true를 build.gradle 파일의 적절한 빌드 유형에 추가합니다.
+
+> 유의할 점은, 코드 축소가 빌드 시간을 느리게 하므로 가능하면 디버그 빌드에서는 사용하지 말아야 합니다
+
+- 당신이 정말로 필요한 것보다 더 많은 모듈들을 사용하지 마라.컴파일 오래 걸릴라.
 
 - [SVGs에 대한 PNGs를 ditching하는 것](http://developer.android.com/tools/help/vector-asset-studio.html)에 대해 생각하라.
+
+> SVG(Scalable Vector Graphic, 다중 밀도 벡터 그래픽)는 작은 APK를 제공하지만, 벡터 드로어블을 처음 로드할 때 시간이 오래걸릴 수 있다.
 
 - 라이브러리 abstraction classes을 만들어라. 좀더 좋은 옵션이 생겨서, 어느 자리를 swithching하는 것이 필요할 때 더 쉽다. (Log.d(TAG,message) -> [Timber.d(message)](https://github.com/JakeWharton/timber))
 
