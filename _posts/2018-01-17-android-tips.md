@@ -13,11 +13,19 @@ tags: tip androidstudio design
 
 > [Android UI OpenSource](https://kmshack.github.io/AndroidUICollection/)
 
-## 개발 내내 도움이 될 수 있는 라이브러리 TOP 5
+## 개발 내내 도움이 될 수 있는 라이브러리 TOP 3
 
 1. ButterKnife Library + ButterKnifeZelezny Plugin
 
 > 버터나이프 라이브러리와 ButterKnifeZelezny 플러그인을 같이 쓰면 매우 간단하게 XML에서 java로 연결하는 작업이 매우 쉬워진다.
+
+2. Dagger2 
+
+> 해당 라이브러리는 Dependency Injection을 지원해주는 라이브러리로써, Dependency Injection이 무엇인지 안다면, 매우 유용한 라이브러리라고 할 수 있겠다.
+
+3. RxJava
+
+> 성능을 위해 비동기 작업이 필수인 시대에, 많은 도움을 줄 수 있다.
 
 ## 완성된 앱으로 공부하기
 
