@@ -17,6 +17,14 @@ tags: tip fast coding programming androidstudio
 > Ctrl + Alt + S를 눌러 환경설정에 진입한 뒤, Live Templates 탭을 선택
 
 ## 대표적인 템플릿 기능
+- _**`fbc`**: "findViewById with cast"_
+- _**`foreach`**: "Create a for each loop"_
+- _**`Toast`**: "Create a new Toast"_
+- _**`todo`**: "adds // TODO"_
+- _**`logd`**: "Log.d(TAG, String)"_
+
+- _**`lhm`**: "android:layoutheight=&quot;matchparent&quot;"_
+- _**`lwm`**: "android:layoutwidth=&quot;matchparent&quot;"_
 
 ### Android.xml
 - **`const`**: "Define android style int constant"
@@ -32,7 +40,7 @@ tags: tip fast coding programming androidstudio
 - **`sbc`**: "block comment for structuring code"
 - **`Sfmt`**: "String format"
 - **`starter`**: "Creates a static start(...) helper method to start an Activity"
-- **`Toast`**: "Create a new Toast"
+- _**`Toast`**: "Create a new Toast"_
 - **`ViewConstructors`**: "Adds generic view constructors"
 - **`visible`**: "Set view visibility to VISIBLE"
 - **`wrapIt`**: "adds a gradle wrapper task"
@@ -77,9 +85,9 @@ tags: tip fast coding programming androidstudio
 ### AndroidXML.xml
 - **`appNs`**: "adds application namespace"
 - **`lh`**: "android:layout_height=&quot;&quot;"
-- **`lhm`**: "android:layout_height=&quot;match_parent&quot;"
+- _**`lhm`**: "android:layoutheight=&quot;matchparent&quot;"_
 - **`lhw`**: "android:layout_height=&quot;wrap_content&quot;"
 - **`lw`**: "android:layout_width=&quot;&quot;"
-- **`lwm`**: "android:layout_width=&quot;match_parent&quot;"
+- _**`lwm`**: "android:layoutwidth=&quot;matchparent&quot;"_
 - **`lww`**: "android:layout_width=&quot;wrap_content&quot;"
 - **`toolsNs`**: "adds tools namespace to Android xml file"
