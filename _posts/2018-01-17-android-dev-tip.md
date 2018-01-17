@@ -10,6 +10,10 @@ tags: design performance tip
 
 > 단순히 코딩하기 보다는 개발의 원칙을 가지고 해야지, 중심을 잃지 않을 수 있다.
 
+## 자바 프로그래밍 시 팁들 한번 꼭 읽어보기
+
+> [30가지 자바 프로그래밍 Tip](https://www.javacodegeeks.com/2015/06/java-programming-tips-best-practices-beginners.html)
+
 ## 성능을 위해 코딩 중에 고려하면 좋은 TIP들
 
 1. 불필요한 객체생성을 피하기
