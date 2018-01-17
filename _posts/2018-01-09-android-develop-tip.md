@@ -13,6 +13,26 @@ postname: '[TIP] 안드로이드 개발 팁'
 
 > 꼭 유용한 Tip 5개만이라도 참고해서 코딩해야겠다.
 
+## 대표적인 개발 TIP
+- 만약 사용자가 그것을 볼 수 없다면 그것이 그려지게 하지말라!
+- RxJava와 Retrofit & Retrolambda를 결합해서 쓰는 것이 최고의 효율을 낸다.
+- 레이어가 아닌 기능별로 패키징해라.
+- username과 email addresses에 로그인을 제안하기 위한 [Account manager](http://developer.android.com/reference/android/accounts/AccountManager.html)를 사용해라.
+- 인라인 디버깅 + TTD를 실시해라. 
+> Debug = Settings = Show Values Inline 선택)
+- [gradle build 시간을 줄이자](https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb).
+> /Users/cesarferreira/.gradle/gradle.properties
+```java
+org.gradle.daemon=true
+org.gradle.parallel=true
+org.gradle.configureondemand=true
+```
+- [SOLID](https://ko.wikipedia.org/wiki/SOLID), 객체프로그래밍을 준수하라.
+- Dependency Injection을 수행하는 Dagger 2 라이브러리를 사용해라.
+- build.gradle 파일에 모두 dependency를 기록하지 마라
+- beta와 production.apk를 빌드하고 배포하기 위해 CI(Continuous Integration)을 사용해라.
+> 고유의 CI server를 만들지 말고, circleci, travis, shippable을 사용하라.
+
 ## 안드로이드 언어 개발 Tip
 
 - 제 3의 라이브러리를 추가하기 전에 두번 생각해라, 정말로 serious한 commitment 이다.
