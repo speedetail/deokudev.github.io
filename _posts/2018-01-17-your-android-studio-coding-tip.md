@@ -6,6 +6,9 @@ postname: '[TIP] 안드로이드 스튜디오 코딩 TIP'
 categories: android
 tags: androidstudio tip
 ---
+* contents
+{:toc}
+
 ## 서론	
 
 > 필수 조건은 아니지만, 도구의 사용법을 잘 익히는 것은, 반복적인 작업 시간을 줄이고, 매우 생산적이고 효율적으로 일할 수 있게 해준다. 
@@ -42,7 +45,7 @@ tags: androidstudio tip
 ### 라인 관련 단축키
 - (라인 관련) 라인 삭제 : Ctrl + y   
 - (라인 관련) 라인 복제 : Ctrl + d  // duplicate
-- (라인 관련) 라인 합치기 : *Ctrl + Shift + j* //joint
+- (라인 관련) 라인 합치기 : **Ctrl + Shift + j** //joint
 > 선택된 위치의 줄에 관하여 줄바꿈한 밑의 줄을 끌어올려서 한줄로 만든다.
 - (라인 관련) 라인 위아래 이동 : Alt + Shift + up/down
 - (라인 관련) smart line split : Ctrl + Enter
