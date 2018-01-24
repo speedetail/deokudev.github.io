@@ -29,4 +29,65 @@ include ':app' ':libs:bottom-bar'
 ```java
 compile project(":libs:bottom-bar")
 ```
--Sync Now
+
+
+- 메인 프로젝트의 build.gradle Project 파일의 task clean 괄호 끝나고 빈공간에 아래와 같이 설정에 맞게 해준다.
+```java
+ext {
+    compileSdkVersion = 25
+    //buildToolsVersion = "25.0.2"
+    minSdkVersion = 11
+    targetSdkVersion = 25
+    supportLibraryVersion = "25.3.0"
+    junitVersion = "4.12"
+}
+```
+
+- 메인 프로젝트의 build.gradle Module 파일을 아래와 같이 수정한다.
+```java
+android {
+    //compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    //buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.speedetail.speedetail"
+        //minSdkVersion 19
+        //targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+          ...
+```
+- 마지막으로 라이브러리의 build.gradle 파일에는 아래와 같이 추가해준다.
+```java
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    sourceSets {
+    main {
+        manifest.srcFile 'AndroidManifest.xml'
+        java.srcDirs = ['src']
+        res.srcDirs = ['res']
+    }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
+    compile 'com.android.support:design:' + rootProject.ext.supportLibraryVersion
+
+    testCompile 'junit:junit:' + rootProject.ext.junitVersion
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+```
