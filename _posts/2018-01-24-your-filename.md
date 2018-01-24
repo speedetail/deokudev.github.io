@@ -3,7 +3,7 @@ published: true
 layout: post
 date: '2018-01-24 17:06 +0900'
 postname: '[일지] 2일차 외부 라이브러리 정리'
-categories: android
+categories: project
 tags: calendar bottombar datepicker
 ---
 ## 서론
@@ -18,4 +18,3 @@ tags: calendar bottombar datepicker
 - [Calendar](https://android.googlesource.com/platform/packages/apps/Calendar/+/nougat-release)
 : Android OpenSource Calendar Part
 - [Calendar Month](https://android.googlesource.com/platform/packages/apps/Calendar/+/nougat-release/src/com/android/calendar/month/)
-
