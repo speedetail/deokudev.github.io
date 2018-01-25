@@ -58,9 +58,9 @@ android {
           ...
 ```
 - 마지막으로 라이브러리의 build.gradle 파일에는 아래와 같이 추가해준다.
+
 ```java
 apply plugin: 'com.android.library'
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -74,7 +74,6 @@ android {
     }
 
 }
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
