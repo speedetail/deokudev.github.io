@@ -13,7 +13,7 @@ tags: calendar bottombar datepicker
 > 다만 License에 주의해야 겠지만..!
 
 ## 2일차 일지
-- [BottomNavBar](https://github.com/Ashok-Varma/BottomNavigation) : Apache License 2.0 (7.5k star)
+- [BottomNavBar](https://github.com/Ashok-Varma/BottomNavigation) : Apache License 2.0 (2.8k star)
 - [HorizontalDatePicker](https://github.com/jhonnyx2012/HorizontalPicker) : Apache License 2.0 (50 star)
 - [Calendar](https://android.googlesource.com/platform/packages/apps/Calendar/+/nougat-release)
 : Android OpenSource Calendar Part
