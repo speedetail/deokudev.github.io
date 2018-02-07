@@ -22,7 +22,9 @@ tags: contents uri
 > Content Provider 특성상 다른 Application 사이의 공유를 전제하므로, 자료를 가져다 사용할 때, `Contents의 자료형태`를 지켜주어야 한다.
 
 > Content의 URI 형태는 아래와 같다.
+
 ![uri.jpg]({{site.baseurl}}/posts_img/uri.jpg)
+
 
 - A : Contents URI에는 항상 `content://`을 써주어야 한다.
 - B : `기관`을 의미하지만, 자바의 패키지 이름이라고 생각하자. 나중에 Manifest 파일에 명시해주어야 한다.
@@ -32,10 +34,13 @@ tags: contents uri
 ### URI를 만드는 두가지 방법
 
 - 직접 만들기
+
 ```java
 public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/images");
 ```
+
 - android.net.Uri.Builder 클래스와 android.content.ContentUris 클래스를 사용해서 만들기 (주로 많이 사용된다.)
+
 ```java
 Uri.Builder builder = Contents.CONTENT_URI.buildUpon();
 
