@@ -15,7 +15,7 @@ layout: null
   ,
   {% for page in site.pages %}
    {
-     {% if page.title == "NEVERNULL" %}
+     {% if page.title != nil %}
         "title"    : "{{ page.title | escape }}",
         "category" : "{{ page.category }}",
         "tags"     : "{{ page.tags | join: ', ' }}",
