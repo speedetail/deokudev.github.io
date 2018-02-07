@@ -62,7 +62,7 @@ paginate: 6
 # prose setting
 prose:
   rooturl: '_posts'
-  media: '_posts/posts_img'
+  media: 'posts_img'
   metadata:
     _posts:
       - name: "layout"
