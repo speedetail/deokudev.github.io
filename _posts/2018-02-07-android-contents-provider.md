@@ -58,4 +58,4 @@ Uri phoneNumbersUri = builder.build();
 
 ## 참조
 
-- [Contents Provider - 컨텐츠 프로바이더란?|작성자 애송](https://blog.naver.com/areema/60165412681)
+- [Contents Provider 컨텐츠 프로바이더란? 작성자 애송](https://blog.naver.com/areema/60165412681)
