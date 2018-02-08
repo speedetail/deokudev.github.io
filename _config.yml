@@ -93,5 +93,5 @@ prose:
         field:
           element: "text"
           label: "tags"       
-          placeholder: "포스팅 내 핵심단어"
+          placeholder: "목차를 표시하려면 앞에 content {:toc} 붙이기"
 
