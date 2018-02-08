@@ -14,4 +14,4 @@ tags: study
 
 > 자바의 runnable interface : https://blog.naver.com/highkrs/220274474749
 
-- run 메쏘드 달랑 하나 있는 interface로써, 멀티쓰레드 프로그래밍을 작성하기 위해 사용된다. 보통 방식은 클래스를 선언하여 runnable을 implement한 후에 추상메쏘드인 run을 재정의 해주고, Thread를 새로 선언하여, 인자로 넘겨준 뒤, Thread.start() 함수를 통해 비동기 처리를 하게 된다. 그러나 바로 Thread의 인자에 new runnable(){}형식으로 넣어주기도 한다.
+- `run 메쏘드 달랑 하나 있는 interface로써, 멀티쓰레드 프로그래밍을 작성하기 위해 사용되는 자바의 추상 interface`이다. 보통 방식은 클래스를 선언하여 runnable을 implement한 후에 추상메쏘드인 run을 재정의 해주고, Thread를 새로 선언하여, 인자로 넘겨준 뒤, Thread.start() 함수를 통해 비동기 처리를 하게 된다. 그러나 바로 Thread의 인자에 new runnable(){}형식으로 넣어주기도 한다.
