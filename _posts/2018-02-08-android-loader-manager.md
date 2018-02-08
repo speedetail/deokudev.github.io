@@ -6,7 +6,6 @@ postname: '[개념] 로더매니저(LoaderManager)의 의미와 기능'
 categories: android
 tags: 개념
 ---
-(:toc)
 ## Loader란?
 
 > 안드로이드 3.0 이후부터는 LoaderManager가 제공되었는데, 한마디로 `Loader는 Data의 비동기 Loading 기능`을 수행한다. 추가적으로 밑의 기능을 제공한다.
