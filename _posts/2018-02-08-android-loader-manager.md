@@ -6,6 +6,7 @@ postname: '[개념] 로더매니저(LoaderManager)의 의미와 기능'
 categories: android
 tags: 개념
 ---
+(:toc)
 ## Loader란?
 
 > 안드로이드 3.0 이후부터는 LoaderManager가 제공되었는데, 한마디로 `Loader는 Data의 비동기 Loading 기능`을 수행한다. 추가적으로 밑의 기능을 제공한다.
@@ -69,6 +70,34 @@ class AppListFragment extends ListFragment implements
  +--------------------------+------------------------+
 
 ```
+
+- Fragment에서 `LoaderManager.initLoader()를 호출` (onStart() 이전에 호출해야 함) 하면서, LoaderCallBack을 implement하는 Fragment를 LoaderCallBack으로 등록시킨다.
+
+- LoaderManager가 `onCreateLoader()를 호출`한다.
+
+- `AppLoader()가 만들어진다.`
+
+- Activity가 생성되면서 onStart()를 호출 시 밑의 함수를 차례로 호출
+
+```java
+LoadManager.doStart() ... 
+	AppLoader.startLoading() ... 
+ 		AsyncTaskLoader.onForceLoading() ...
+```
+- onForceLoading()이 LoadTask()를 생성 후, Thread를 이용하여 실행
+
+- Thread가 doInBackground()를 실행 (이때부터 비동기로 작업 수행)
+
+- onPostExecute()를 UI thread Handler에게 넘김 (비동기 작업이 끝남) 
+
+- onPostExecute()를 실행하면서,
+
+```java
+AppLoader.deliveryResult() ...
+	super.deliveryResult() ...
+  		onLoadFinished() 호출  
+```  
+- `onLoadFinished()`에 데이터가 처리되었을 때, UI 데이터 변경 작업을 실시
 
 ## 참조
 
