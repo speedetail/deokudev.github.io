@@ -2,7 +2,7 @@
 published: true
 layout: post
 date: '2018-03-02 15:44 +0900'
-postname: '[공부] Java 일반 개념'
+postname: '[공부] Chapter1.  Java 일반 개념'
 categories: java
 ---
 contents {:toc}
