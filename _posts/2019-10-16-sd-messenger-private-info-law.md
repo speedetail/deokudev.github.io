@@ -2,7 +2,7 @@
 published: true
 layout: post
 date: '2019-10-16 22:23 +0900'
-postname: '[sd-messenger]'
+postname: '[sd-messenger]개인정보처리방침'
 ---
 ### 1. 개인정보의 처리 목적 (‘https://sd-messenger-8e00c.firebaseapp.com’이하 ‘sd-messenger’) 은(는) 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.
 - 고객 가입의사 확인, 고객에 대한 서비스 제공에 따른 본인 식별.인증, 회원자격 유지.관리, 물품 또는 서비스 공급에 따른 금액 결제, 물품 또는 서비스의 공급.배송 등
